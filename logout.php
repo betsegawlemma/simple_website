@@ -14,9 +14,8 @@ time()-3600, '/', '', 0, 0);
 // Set the page title and include the HTML header:
 $page_title = 'Logged Out!';
 include('includes/header.html');
+include('includes/redirect_function.inc.php');
 // Print a customized message:
-echo "<h1>Logged Out!</h1>
-<p>You are now logged out,
-{$_COOKIE['first_name']}!</p>";
+redirect_user('index.php');
 include('includes/footer.html');
 ?>

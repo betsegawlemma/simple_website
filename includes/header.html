@@ -1,0 +1,92 @@
+<l?php  header.html
+// This page begins the HTML header for the site.
+// Start output buffering:
+ob_start();
+// Initialize a session:
+session_start();
+// Check for a $page_title value:
+if (!isset($page_title)) {
+$page_title = 'User Registration';
+}
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="includes/css/bootstrap.min.css">
+    <script src="includes/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="includes/css/starter-template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Ghion Tour & Travel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="ghion_nav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="destinations.php">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="package.php">Tour Package</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.php">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.php">Media Gallery</a>
+          </li>
+          </ul>
+          <?php 
+              // This page completes the HTML template.
+              // Display links based upon the login status:
+              if ( (isset($_COOKIE['user_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php')
+) {
+              echo '
+              <ul class="navbar-nav mr-auto justify-content-end">
+                <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link right" href="register.php">Register User</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link right" href="view_user.php">View User</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link right" href="messages.php">Messages</a>
+                </li>
+              </ul>';
+              } else { // Not logged in.
+              echo '
+              <ul class="navbar-nav mr-auto justify-content-end">              
+              <li class="nav-item">
+              <a class="nav-link right" href="login.php">Login</a>
+              </li>
+            </ul>';
+              }
+          ?>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">

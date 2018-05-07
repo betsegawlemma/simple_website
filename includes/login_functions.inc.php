@@ -4,20 +4,7 @@
 * The function takes one argument: the page to be redirected to.
 * The argument defaults to index.php.
 */
-function redirect_user($page = 'index.php') {
-// Start defining the URL...
-// URL is http:// plus the host name plus the current directory:
-$url = 'http://' . $_SERVER
-['HTTP_HOST'] . dirname
-($_SERVER['PHP_SELF']);
-// Remove any trailing slashes:
-$url = rtrim($url, '/\\');
-// Add the page:
-$url .= '/' . $page;
-// Redirect the user:
-header("Location: $url");
-exit(); // Quit the script.
-} // End of redirect_user() function.
+include('redirect_function.inc.php');
 /* This function validates the form data
 (the email address and password).
 * If both are present, the database is queried.

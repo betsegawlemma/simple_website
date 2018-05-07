@@ -13,7 +13,7 @@ if ($check) { // OK!
 setcookie('user_id', $data['user_id'], time()+3600, '/', '', 0, 0);
 setcookie('first_name', $data['first_name'], time()+3600, '/', '', 0, 0);
 // Redirect:
-redirect_user('admin_home.php');
+redirect_user('index.php');
 } else { // Unsuccessful!
 // Assign $data to $errors for login_page.inc.php:
 $errors = $data;

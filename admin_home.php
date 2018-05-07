@@ -3,7 +3,7 @@
 // If no cookie is present, redirect the user:
 if (!isset($_COOKIE['user_id'])) {
 // Need the functions:
-require('includes/login_functions.inc.php');
+require('includes/redirect_function.inc.php');
 redirect_user();
 }
 // Set the page title and include the HTML header:
